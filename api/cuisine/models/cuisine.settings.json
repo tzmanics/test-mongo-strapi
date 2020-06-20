@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cuisines",
+  "info": {
+    "name": "Cuisine"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "restaurants": {
+      "via": "cuisines",
+      "collection": "restaurant"
+    }
+  }
+}

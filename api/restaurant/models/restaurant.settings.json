@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurants",
+  "info": {
+    "name": "Restaurant"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "mainImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "cuisines": {
+      "collection": "cuisine",
+      "via": "restaurants",
+      "dominant": true
+    },
+    "articles": {
+      "via": "restaurant",
+      "collection": "article"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "name": "Article"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "mainImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "restaurant": {
+      "model": "restaurant",
+      "via": "articles"
+    },
+    "created": {
+      "type": "date"
+    },
+    "authors": {
+      "via": "articles",
+      "collection": "author"
+    }
+  }
+}
